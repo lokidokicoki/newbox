@@ -1,0 +1,32 @@
+#!/bin/bash
+
+sudo apt-get install xclip git-core gitk gitg terminator vim-gtk ssh sshfs openjdk-7-jdk icedtea-7-plugin htop python3 python3-gi sqlite3 build-essential
+
+# install vim-pathogen
+sudo apt-get install curl exuberant-ctags
+mkdir -p ~/.vim/autoload ~/.vim/bundle
+curl -Sso ~/.vim/autoload/pathogen.vim https://raw.github.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+
+# install vim-tagbar, vim-mic and vim-lua-ftplugin
+cd ~/.vim/bundle
+git clone git://github.com/majutsushi/tagbar
+git clone https://github.com/scrooloose/nerdtree
+git clone https://github.com/scrooloose/syntastic
+
+# install skype (if you really have to)
+#sudo apt-add-repository "deb http://archive.canonical.com/ $(lsb_release -sc) partner"
+#sudo apt-get update && sudo apt-get install skype
+
+# install spotify (for your listening pleasure)
+sudo add-apt-repository "deb http://repository.spotify.com stable non-free"
+sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys 94558F59
+sudo apt-get update && sudo apt-get install spotify-client
+
+# virtualbox
+#echo "deb http://download.virtualbox.org/virtualbox/debian precise contrib" >> /etc/apt/sources.list
+#wget -q http://download.virtualbox.org/virtualbox/debian/oracle_vbox.asc -O- | sudo apt-key add -
+#sudo apt-get update && sudo apt-get install virtualbox-4.2 dkms
+
+cd ~ && wget -O - "https://www.dropbox.com/download?plat=lnx.x86_64" | tar xzf -
+
+git config --global color.ui true
